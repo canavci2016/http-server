@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo "webserver file was removed"
+rm webserver
+echo "Building started"
+g++ -w -std=c++11 -o webserver main.cpp Servers/HttpServer.cpp Servers/WebServer.cpp socket-server-cpp-main/Networking/Servers/TestServer.cpp socket-server-cpp-main/Networking/Servers/AbstractSimpleServer.cpp socket-server-cpp-main/Networking/Sockets/ListeningSocket.cpp socket-server-cpp-main/Networking/Sockets/BindingSocket.cpp socket-server-cpp-main/Networking/Sockets/SimpleSocket.cpp
+echo "Building finished"
+echo "you should run './webserver' command "
