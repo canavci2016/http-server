@@ -1,6 +1,4 @@
-#ifndef BBWS_Servers_WebServer_hpp
-
-#define BBWS_Servers_WebServer_hpp
+#pragma once
 
 #include "../socket-server-cpp-main/hdelib-socket-server.hpp"
 #include <unistd.h>
@@ -31,5 +29,3 @@ namespace BBWS
     };
 
 }
-
-#endif

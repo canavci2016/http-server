@@ -1,6 +1,4 @@
-#ifndef BBWS_Servers_HttpServer_hpp
-
-#define BBWS_Servers_HttpServer_hpp
+#pragma once
 
 #include "WebServer.hpp"
 
@@ -15,5 +13,3 @@ namespace BBWS
     };
 
 }
-
-#endif
