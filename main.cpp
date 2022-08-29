@@ -9,7 +9,7 @@ int main()
     BBWS::HttpServer testServer(port);
     auto request_callback = [](char request[])
     {
-                                    std::cout << request << std::endl;
+                                    //std::cout << request << std::endl;
                                      std::string hello_message = "hello worl";
                                      return hello_message; };
 

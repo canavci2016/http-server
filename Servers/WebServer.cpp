@@ -24,7 +24,7 @@ std::string BBWS::WebServer::handler()
 void BBWS::WebServer::responder(std::string const &str)
 {
     write(new_socket, str.c_str(), str.length());
-    std::cout << "------------------Hello message sent (responded)-------------------" << std::endl;
+    //   std::cout << "------------------Hello message sent (responded)-------------------" << std::endl;
 }
 
 void BBWS::WebServer::launch()
