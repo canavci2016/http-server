@@ -12,7 +12,7 @@ namespace BBWS
 
     public:
         HttpServer(int port);
-        std::string handler(); // since any one can declare its own handler
+        std::string handler() override; // since any one can declare its own handler
         void onRequestReceived(std::function<std::string(char *request)> callback);
     };
 
