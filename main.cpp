@@ -2,6 +2,7 @@
 #include <string>
 #include "Servers/HttpServer.hpp"
 #include "Servers/Response.hpp"
+#include <fstream>
 
 int main()
 {
@@ -10,10 +11,8 @@ int main()
     BBWS::HttpServer testServer(port);
     auto request_callback = [](char request[])
     {
-        // std::cout << request << std::endl;
-        std::string content = "hello world";
-
-        return BBWS::Response::html(content, 200);
+        std::string path = "./views/index.html";
+        return BBWS::Response::htmlFile(path);
     };
 
     testServer.onRequestReceived(request_callback);

@@ -23,3 +23,27 @@ std::string BBWS::Response::html(std::string &content, int statusCode)
     oss << content;
     return oss.str();
 }
+
+std::string BBWS::Response::htmlFile(std::string &path, int statusCode)
+{
+    std::ifstream fin;
+    std::string content;
+    std::string line;
+
+    fin.open(path.c_str());
+
+    if (fin.fail())
+    {
+        std::cerr << "Error - Failed to open " << path << std::endl;
+        exit(-1); // Or use a loop to ask for a different file name.
+    }
+
+    while (fin >> line)
+    {
+        content.append(line);
+    };
+
+    fin.close();
+
+    return html(content, statusCode);
+}
