@@ -21,21 +21,21 @@ so as to run the server in the directory on the terminal
 #include <iostream>
 #include <string>
 #include "Servers/HttpServer.hpp"
+#include "Servers/Response.hpp"
 
 int main()
 {
     int port = 8080;
     std::cout << port << " is being used " << std::endl;
+
     BBWS::HttpServer testServer(port);
-    
     auto request_callback = [](char request[])
     {
-                                    std::cout << request << std::endl;
-                                     std::string hello_message = "hello worl";
-                                     return hello_message; };
+        std::string path = "./views/index.html";
+        return BBWS::Response::htmlFile(path);
+    };
 
-//  // it is triggered whenever we receive request from client
-    testServer.onRequestReceived(request_callback); 
+    testServer.onRequestReceived(request_callback);
     testServer.launch();
 
     return 0;
