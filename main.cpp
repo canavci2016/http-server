@@ -2,12 +2,12 @@
 #include <string>
 #include "Servers/HttpServer.hpp"
 #include "Servers/Response.hpp"
-#include <fstream>
 
 int main()
 {
     int port = 8080;
     std::cout << port << " is being used " << std::endl;
+
     BBWS::HttpServer testServer(port);
     auto request_callback = [](char request[])
     {
