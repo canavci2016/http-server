@@ -27,9 +27,6 @@ std::string BBWS::Response::html(std::string &content, int statusCode)
 std::string BBWS::Response::htmlFile(std::string &path, int statusCode)
 {
     std::ifstream fin;
-    std::string content;
-    std::string line;
-
     fin.open(path.c_str());
 
     if (fin.fail())
@@ -37,11 +34,13 @@ std::string BBWS::Response::htmlFile(std::string &path, int statusCode)
         std::cerr << "Error - Failed to open " << path << std::endl;
         exit(-1); // Or use a loop to ask for a different file name.
     }
-
-    while (fin >> line)
-    {
-        content.append(line);
-    };
+    /*
+    std::istreambuf_iterator<char>(fin) = makes an input stream iterator from an input stream
+    You can access its elements going forward until you reach the end of the stream.
+     Once you reach the end of stream, the iterator becomes equivalent to an iterator created using the default constructor:
+     std::istreambuf_iterator<char>()
+    */
+    std::string content((std::istreambuf_iterator<char>(fin)), std::istreambuf_iterator<char>());
 
     fin.close();
 
